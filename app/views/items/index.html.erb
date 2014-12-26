@@ -1,0 +1,11 @@
+<h2> Items </h2>
+
+<%= link_to 'New Item', new_item_path %>
+
+<% @items.each do |item| %>
+	<p><%= item.name %></p>
+	<p><%= item.description %></p>
+	<p><%= link_to 'Show', item_path(item) %></p>
+	<p><%= link_to 'Edit', edit_item_path(item) %></p>
+	<p><%= link_to 'Destroy', item_path(item), method: :delete, data: { confirm: 'Are you surrre?' } %></p>
+<% end %>
