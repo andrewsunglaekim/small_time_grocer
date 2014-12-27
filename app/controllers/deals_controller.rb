@@ -9,22 +9,45 @@ class DealsController < ApplicationController
 
 	def new
 		@vendors = Vendor.all
-		@vendors_options = []
 		@items = Item.all
 		@deal = Deal.new
 	end
 
+	def edit
+		@items = Item.all
+		@vendors = Vendor.all
+		@deal = Deal.find(params[:id])
+	end
+
 	def create
-		@deal = Deal.new
+		@items = Item.all
+		@vendors = Vendor.all
+		@deal = Deal.new(deal_params)
 		if @deal.save
 			redirect_to @deal
 		else render 'new'
 		end
 	end
 
+	def update
+		@deal = Deal.find(params[:id])
+		if @deal.update(deal_params)
+			redirect_to @deal
+		else 
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@deal = Deal.find(params[:id])
+		@deal.destroy
+
+		redirect_to deals_path
+	end
+
 	private
 	def deal_params
-		params.require(:deal).permit(:price)
+		params.require(:deal).permit(:item_id, :vendor_id, :price)
 	end
 
 end

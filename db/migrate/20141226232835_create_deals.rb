@@ -3,7 +3,7 @@ class CreateDeals < ActiveRecord::Migration
     create_table :deals do |t|
     	t.belongs_to :item
   		t.belongs_to :vendor
-  		t.integer :price
+  		t.decimal :price, precision: 6, scale: 2
   		
   		t.timestamps null: false
     end
