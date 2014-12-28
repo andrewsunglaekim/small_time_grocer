@@ -36,7 +36,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'therubyracer'
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-digitalocean'
+gem 'omniauth-facebook'
 
 # gem for error respond_to featurefrom responders gem
 gem 'responders', '~> 2.0'
