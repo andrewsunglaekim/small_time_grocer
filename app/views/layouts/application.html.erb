@@ -10,7 +10,13 @@
 <a href='/'>Home</a>
 <%= link_to 'deals', deals_path %>
 <%= link_to 'items', items_path %>
-<%= link_to 'vendors', vendors_path %> 
+<%= link_to 'vendors', vendors_path %>
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %> 
 <%= yield %>
 
 </body>
